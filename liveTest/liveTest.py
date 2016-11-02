@@ -1,4 +1,5 @@
-#-*-coding:utf-8
+#-*-coding:utf-8-*-
+
 import serial
 import urllib
 import urllib.request
@@ -6,20 +7,19 @@ import time
 import json
 import RPi.GPIO as GPIO
 
-
 red = 17
 green = 18
 blue = 27
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(red, GPIO.OUT)
+GPIO.setup(red,   GPIO.OUT)
 GPIO.setup(green, GPIO.OUT)
-GPIO.setup(blue, GPIO.OUT)
+GPIO.setup(blue,  GPIO.OUT)
 
 Freq = 100 #Hz
 
 bookcaseNumber = '1'
-data = ["BB A3 C3 17","3A AA A7 9B","AA A7 3A 9B","3A 9B AA A7"]
+data = ["BB A3 C3 17", "3A AA A7 9B", "AA A7 3A 9B", "3A 9B AA A7"]
 url = "http://henocks.dothome.co.kr/f6.php"
 url2 = "https://ll.0o0.moe/API/login"
 url_rfid = "https://ll.0o0.moe/API/takeMyBooks"
@@ -116,7 +116,7 @@ try:
      
 
 except KeyboardInterrupt:
-    print("QUITTTING")
+    print("KBDInterrupt Raised. QUITTTING...")
     RUNNING = False
     ser.close()
     GPIO.cleanup()
